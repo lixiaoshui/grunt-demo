@@ -1,13 +1,17 @@
 module.exports = function(grunt){
     grunt.initConfig({
-        less:{
-            compile:{
-                files:{'dist/compiled.css':'css/*.less'}
+        mocha:{
+            test:{
+                src:['test/index.html']
+            },
+            options:{
+                run:true,
+                repoter:'Dot'
             }
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-mocha');
 
-    grunt.registerTask('default',['less:compile']);
+    grunt.registerTask('default',['mocha']);
 }
